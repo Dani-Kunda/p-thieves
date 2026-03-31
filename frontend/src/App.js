@@ -1,54 +1,69 @@
-import { useEffect } from "react";
 import "@/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+// Components
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
+// Pages
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ProductsPage from "./pages/ProductsPage";
+import CharactersPage from "./pages/CharactersPage";
 
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+/* ============================================
+   PERSONA 5 ROYAL - PHANTOM THIEVES WEBSITE
+   ============================================
+   
+   PAGES:
+   - / (Home): Hero banner, featured image with red box, video
+   - /about: Story and features
+   - /products: Merchandise store
+   - /characters: Characters & Personas collection guide
+   
+   USER CONTENT LOCATIONS:
+   - Each page has USER CONTENT comments for editable sections
+   - Footer has social media links to update
+   - See individual page files for specific content areas
+   
+   ============================================ */
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-black min-h-screen">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
+        <Navbar />
+        <main className="pt-0">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/characters" element={<CharactersPage />} />
+          </Routes>
+        </main>
+        <Footer />
       </BrowserRouter>
     </div>
   );
 }
 
 export default App;
+
+/* ============================================
+   APP STRUCTURE
+   ============================================
+   
+   /app/frontend/src/
+   ├── App.js               (this file - main router)
+   ├── App.css              (Persona 5 specific styles)
+   ├── index.css            (Global styles, fonts, CSS vars)
+   ├── components/
+   │   ├── Navbar.jsx       (Navigation - edit nav links)
+   │   └── Footer.jsx       (Footer - edit social/purchase links)
+   └── pages/
+       ├── HomePage.jsx     (Banner, feature image, video)
+       ├── AboutPage.jsx    (Story, features)
+       ├── ProductsPage.jsx (Merchandise listings)
+       └── CharactersPage.jsx (Characters & Personas)
+   
+   ============================================ */

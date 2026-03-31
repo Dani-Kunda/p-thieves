@@ -1,34 +1,231 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Persona 5 Royal - Phantom Thieves Theme */
+
+/* Main app container */
+.App {
+  min-height: 100vh;
+  background-color: #000000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Hero section */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+.hero-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.App-link {
-    color: #61dafb;
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 50%, #000000 100%);
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Feature section with red box */
+.feature-section {
+  position: relative;
+}
+
+.feature-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-red-box {
+  position: absolute;
+  inset: 20px;
+  border: 4px solid #E0000F;
+  background-color: rgba(224, 0, 15, 0.2);
+  pointer-events: none;
+}
+
+/* Card hover effects */
+.p5-card {
+  background-color: #121212;
+  border: 1px solid #333333;
+  transition: all 150ms ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.p5-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, #E0000F 1px, transparent 1px);
+  background-size: 6px 6px;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.p5-card:hover {
+  border-color: #E0000F;
+  transform: translateY(-4px);
+}
+
+.p5-card:hover::before {
+  opacity: 0.1;
+}
+
+/* Video embed container */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border: 2px solid #E0000F;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Character card */
+.character-card {
+  background-color: #0a0a0a;
+  border: 2px solid #333333;
+  transition: all 200ms ease-out;
+  position: relative;
+}
+
+.character-card:hover {
+  border-color: #E0000F;
+  box-shadow: 0 0 30px rgba(224, 0, 15, 0.3);
+}
+
+.character-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #E0000F;
+  transform: scaleX(0);
+  transition: transform 200ms ease-out;
+}
+
+.character-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* Product card */
+.product-card {
+  background-color: #0a0a0a;
+  border: 1px solid #222222;
+  transition: all 150ms ease-out;
+}
+
+.product-card:hover {
+  border-color: #E0000F;
+  transform: scale(1.02);
+}
+
+/* Diagonal section divider */
+.diagonal-divider {
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to bottom right, transparent 49.5%, #E0000F 49.5%, #E0000F 50.5%, #121212 50.5%);
+}
+
+/* Footer diagonal top */
+.footer-diagonal {
+  clip-path: polygon(0 15%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+/* Glitch text effect */
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -2px 0 #E0000F;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -2px 0 #FFF200;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim2 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(31px, 9999px, 94px, 0); }
+  20% { clip: rect(62px, 9999px, 42px, 0); }
+  40% { clip: rect(16px, 9999px, 78px, 0); }
+  60% { clip: rect(71px, 9999px, 53px, 0); }
+  80% { clip: rect(29px, 9999px, 88px, 0); }
+  100% { clip: rect(44px, 9999px, 67px, 0); }
+}
+
+@keyframes glitch-anim2 {
+  0% { clip: rect(65px, 9999px, 12px, 0); }
+  20% { clip: rect(23px, 9999px, 89px, 0); }
+  40% { clip: rect(78px, 9999px, 34px, 0); }
+  60% { clip: rect(41px, 9999px, 96px, 0); }
+  80% { clip: rect(56px, 9999px, 21px, 0); }
+  100% { clip: rect(83px, 9999px, 48px, 0); }
+}
+
+/* Pulsing red accent */
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(224, 0, 15, 0.4); }
+  50% { box-shadow: 0 0 20px 10px rgba(224, 0, 15, 0.2); }
+}
+
+.pulse-red {
+  animation: pulse-red 2s infinite;
+}
+
+/* Platform icons hover */
+.platform-link {
+  transition: all 150ms ease-out;
+  border: 2px solid #333333;
+  padding: 12px 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.platform-link:hover {
+  border-color: #E0000F;
+  background-color: #E0000F;
+  transform: skewX(-6deg);
+}
+
+/* Persona collection badge */
+.collection-badge {
+  background-color: #E0000F;
+  color: white;
+  padding: 4px 12px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+  transform: skewX(-12deg);
+}
+
+.collection-badge span {
+  display: inline-block;
+  transform: skewX(12deg);
 }
