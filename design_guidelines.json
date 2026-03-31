@@ -1,0 +1,119 @@
+{
+  "theme": "dark",
+  "archetype": "4 (Swiss & High-Contrast) with Punk/Brutalist Twist",
+  "design_philosophy": "Persona 5 Royal aesthetic. High-contrast, rebellious, punk fanzine style. Heavy use of Red, Black, and White. Angular layouts, skewed buttons, halftone patterns, and bold condensed typography. The design should feel chaotic yet logically organized.",
+  "colors": {
+    "primary": "#E0000F",
+    "primary_hover": "#FF1A2A",
+    "background": "#000000",
+    "surface": "#121212",
+    "surface_glass": "rgba(18, 18, 18, 0.8)",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#B3B3B3",
+    "border": "#333333",
+    "accent_yellow": "#FFF200"
+  },
+  "typography": {
+    "headings": "Bebas Neue",
+    "body": "Outfit",
+    "accent": "Anton",
+    "rules": {
+      "h1": "text-6xl md:text-8xl font-headings uppercase tracking-widest",
+      "h2": "text-4xl md:text-5xl font-headings uppercase tracking-wider",
+      "h3": "text-2xl md:text-3xl font-headings uppercase tracking-wide",
+      "body": "text-base font-body text-text_secondary leading-relaxed",
+      "buttons": "font-headings uppercase tracking-wider text-xl"
+    }
+  },
+  "spacing_and_layout": {
+    "grid": "Bento Grid Protocol with heavy asymmetry. Use grid-cols-1 md:grid-cols-12.",
+    "gaps": "gap-8 md:gap-12",
+    "padding": "p-8 md:p-16 lg:p-24",
+    "containers": "Sections should frequently use clip-path to create diagonal edges (e.g., clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%)).",
+    "alignment": "Optical alignment, heavily skewed elements (-skew-x-12)."
+  },
+  "motion_and_interactions": {
+    "hover": "High contrast flips (e.g., red background to white background, text changes to black). Aggressive scaling (scale-105).",
+    "transitions": "Fast, punchy transitions (duration-150 ease-out).",
+    "load": "Staggered fade-up with slight rotation."
+  },
+  "components": {
+    "buttons": "Skewed containers (`-skew-x-12`). Solid primary background (`bg-[#E0000F]`), white text. On hover, background turns white, text turns black. Thick 2px borders.",
+    "cards": "Square or angular (no border-radius). 1px solid white or red borders. Background black. Hover states should introduce halftone or noise patterns.",
+    "navbar": "Sticky, top-0, z-50. Black background with a thick red bottom border. Links should have a red underline effect on hover.",
+    "footer": "Massive py-20. Diagonal top edge. Contains links to Atlus Socials, Discord, Spotify Soundtrack, and Game Purchase links.",
+    "halftone_texture": "Implement a CSS class for halftone backgrounds: `bg-[radial-gradient(circle,#E0000F_2px,transparent_2px)] bg-[size:10px_10px]` with opacity-20."
+  },
+  "pages_and_routes": [
+    {
+      "path": "/",
+      "name": "Index",
+      "description": "Hero section with 'Image 2' as banner. A dedicated section featuring 'Image 4' with a red box overlay. Embedded YouTube video of Persona gameplay."
+    },
+    {
+      "path": "/about",
+      "name": "About",
+      "description": "Story of the Phantom Thieves. Diagonal layouts, bold typographic quotes."
+    },
+    {
+      "path": "/products",
+      "name": "Products",
+      "description": "Merchandise store grid. High contrast product cards."
+    },
+    {
+      "path": "/characters",
+      "name": "Characters",
+      "description": "Grid of characters and personas. Info on how to collect them. User editable spaces."
+    }
+  ],
+  "image_urls": {
+    "favicon_image_3": {
+      "url": "https://images.unsplash.com/photo-1708515847844-fdb5b19b0c29?crop=entropy&cs=srgb&fm=jpg",
+      "description": "Favicon (Image 3). User will replace this. The developer MUST add a comment indicating this is Image 3.",
+      "category": "favicon"
+    },
+    "banner_image_2": {
+      "url": "https://images.unsplash.com/photo-1646651024829-454814d2fb62?crop=entropy&cs=srgb&fm=jpg",
+      "description": "Hero Banner (Image 2) on Index page. User will replace this. The developer MUST add an HTML comment highlighting this.",
+      "category": "hero"
+    },
+    "main_image_4": {
+      "url": "https://images.unsplash.com/photo-1552298048-702bc534e0d4?crop=entropy&cs=srgb&fm=jpg",
+      "description": "Main page feature (Image 4). Must have a red box overlay as requested. User will replace this. Add an HTML comment.",
+      "category": "feature"
+    },
+    "character_portrait_placeholder": {
+      "url": "https://images.pexels.com/photos/34062274/pexels-photo-34062274.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Placeholder for character images on the Characters page. Add HTML comments so user can swap these.",
+      "category": "characters"
+    },
+    "persona_portrait_placeholder": {
+      "url": "https://images.unsplash.com/photo-1597361860389-d818d6b8a12e?crop=entropy&cs=srgb&fm=jpg",
+      "description": "Placeholder for persona images.",
+      "category": "personas"
+    },
+    "merch_placeholder_1": {
+      "url": "https://images.pexels.com/photos/32191794/pexels-photo-32191794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Merch item placeholder.",
+      "category": "products"
+    },
+    "merch_placeholder_2": {
+      "url": "https://images.pexels.com/photos/17122728/pexels-photo-17122728.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Merch item placeholder.",
+      "category": "products"
+    }
+  },
+  "instructions_to_main_agent": [
+    "This is a React/Tailwind/Shadcn project.",
+    "Theme is Persona 5 Royal. Do NOT use soft shadows or rounded corners. Everything must be sharp (rounded-none), brutalist, and high contrast.",
+    "Use the `Bebas Neue` font from Google Fonts for all headings. Import it in index.css.",
+    "Use the `Outfit` font for body text.",
+    "IMPORTANT: The user explicitly requested placeholders in the code where they can add their own images and edit info. You MUST add highly visible comments in the JSX like `<!-- USER CONTENT: Replace this URL with Image 2 -->` or `{/* USER CONTENT: Edit character info here */}`.",
+    "Implement the Index page with a hero banner using 'banner_image_2'.",
+    "Implement a section on the Index page with 'main_image_4' wrapped or overlaid with a distinct red box (e.g., a div with bg-red-600/80 overlaid on the image, or a red border/background behind it).",
+    "Add a Footer component that is shared across all pages. The footer MUST include links to Atlus Social Media accounts, Discord servers, Spotify Soundtrack link, and Where to buy the game (PS, Xbox, Switch, Steam).",
+    "Embed a YouTube video placeholder (e.g., `https://www.youtube.com/embed/dQw4w9WgXcQ` or a real Persona trailer like `https://www.youtube.com/embed/u1H12jAunJg`) on the index or about page.",
+    "Characters & Personas page: Create a grid layout. Each card should have an image, name, and 'How to collect' text block. Leave space and comments for the user to edit.",
+    "Ensure the Favicon is set to 'favicon_image_3' in public/index.html with a comment."
+  ]
+}
